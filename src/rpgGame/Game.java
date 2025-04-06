@@ -8,16 +8,21 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+@SuppressWarnings("serial")
 public class Game extends Canvas implements Runnable{
 	
 	public static int WIDTH = 720;
 	public static int HEIGTH = 720;
 	
+	public Player player;
+	
 	public Game () {
 		this.setPreferredSize(new Dimension(WIDTH, HEIGTH));
+		player = new Player(0, 0);
 	}
 	
 	public void tick() {
+		player.tick();
 		
 	}
 	
@@ -34,8 +39,8 @@ public class Game extends Canvas implements Runnable{
 		
 		g.setColor(Color.black);
 		g.fillRect(0, 0, WIDTH, HEIGTH);
-		g.setColor(Color.white);
-		g.fillRect(50, 50, 10, 10);
+		
+		player.render(g);
 		
 		bs.show();
 	}
