@@ -24,9 +24,9 @@ public class Player extends Rectangle {
 		}
 		
 		if(up) {
-			y+=spd;
-		}else if(down) {
 			y-=spd;
+		}else if(down) {
+			y+=spd;
 		}
 		
 		
